@@ -1,0 +1,37 @@
+<httpProtocol>
+    <customHeaders>
+        <add name="Access-Control-Allow-Origin" value="*" />
+    </customHeaders>
+</httpProtocol>
+<html>
+    <head>
+        <script>
+            var baseurl= "http://localhost:8080";
+        
+            function loadFiles(){
+                var xmlhttp= new XMLHttpRequest();
+                xmlhttp.open("GET",baseurl + "/",true);
+                xmlhttp.onreadystatechange = function() {
+                    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                        var files= JSON.parse(xmlhttp.responseText);
+                        var tabla = "<table><tr> <th>id</th> <th>Name</th> <th>Path</th> <th>Type</th> </tr>";
+                        for(i = 0; i <files.length; i++){
+                        tabla += "<tr> <td>" + files[i].id + "</td> </td>" + "<tr> <td>"+ files[i].name + "</td> </td>" +  
+                            "<tr> <td>" + files[i].path + "</td> </td>" + "<tr> <td>"+files[i].type + "</td> </tr>";  
+                        }                         
+                        tabla += "</table>";
+                        var tbl= tabla;
+                        document.getElementById("information").innerHTML = tbl;
+                    }
+                };
+                xmlhttp.send(); 
+            }
+            window.onload = function(){
+                loadFiles();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="information"> </div>
+    </body>
+</html>

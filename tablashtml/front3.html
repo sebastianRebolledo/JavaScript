@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            fetch('http://localhost:8080')
+            .then((respuesta) => {
+                return respuesta.json();
+            }).then((respuesta) => {
+                document.getElementById('id').value = respuesta.id;
+                document.getElementById('path').value = respuesta.path;
+
+            })
+        </script>
+    </head>
+
+</html>

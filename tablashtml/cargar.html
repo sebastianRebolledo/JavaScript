@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Upload File</title>
+ <meta charset="iso-8859-1" />
+ </head>
+ <body>
+<div id="wrap">
+<div class="field">
+<ul class="options">
+ <li>
+ <input type="file" id="myfile" name="myfile" class="rm-input" onchange="selectedFile();"/></li>
+ <li>
+<div id="fileSize"></div></li>
+ <li>
+<div id="fileType"></div></li>
+ <li>
+ <input type="button" value="Subir Archivo" onClick="uploadFile()" class="rm-button" /></li>
+</ul>
+</div>
+<progress id="progressBar" value="0" max="100" class="rm-progress"></progress>
+<div id="percentageCalc"></div>
+</div>
+</body>
+</html>
